@@ -1,0 +1,42 @@
+npm install -g @vue/cli
+
+vue create [專案名稱]
+
+
+# SASS (引入於 vue.config.js，即為使用 webpack 達成全局引入)
+npm install -D sass-loader node-sass
+
+新增 vue.config.js 檔案，用以更動 webpack 設定
+module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: `
+           @import "@/assets/scss/main.scss";
+        `
+      }
+    }
+  }
+};
+
+sass-loader 版本，若為 v7 舊版的話，需要這樣寫：
+module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `
+           @import "@/assets/scss/main.scss";
+        `
+      }
+    }
+  }
+};
+
+# bootstrap
+npm install bootstrap@nextgen
+main.js --> import "bootstrap/dist/css/bootstrap.css";
+
+
+npm run serve
+
+
